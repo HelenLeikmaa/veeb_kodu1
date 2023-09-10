@@ -1,0 +1,231 @@
+img {
+    /* Esimese asjana määrame piltide laiuseks 100%, et nad ei segaks teiste elementide paigutust. */
+    width: 100%;
+}
+
+header,
+h1 {
+    text-transform: uppercase;
+}
+
+.headline {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 70px;
+}
+
+header h2 {
+    font-weight: 300;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: 2px;
+    padding: 5px;
+}
+
+hr {
+    border-width: 3px;
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+
+header nav ul {
+
+    display: block;
+    margin: 20px auto 10px auto;
+    text-align: center;
+    /*IE*/
+    font-size: large;
+    width: fit-content;
+
+}
+
+header nav ul li {
+
+    display: inline-block;
+    padding: 16px 16px;
+
+}
+
+.banner {
+    background-image: url("img/banner.jpg");
+    width: 100%;
+    height: calc(100vh - 500px);
+    /* vähendatavaks on 100vh ehk veebilehitseja terve akna suurus ja vähendajaks 500px – 
+                                    umbes nii suure osa ekraanist tahame teiste elementide jaoks jätta */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+body {
+    background-color: aliceblue;
+}
+.about {
+    padding: 20px;
+    display: table;
+}
+
+.intro {
+    font-size: large;
+    display: table-cell;
+    justify-self: flex-start;
+    vertical-align: top;
+    text-align: justify;
+    line-height: 20px;
+}
+
+.intro h1 {
+    padding-bottom: 5px;
+}
+
+.chefPic {
+    display: none;
+}
+
+.recipes h1 {
+    display: block;
+    padding: 20px;
+}
+
+.recipes {
+    font-size: large;
+    line-height: 20px;
+
+    text-transform: uppercase;
+    text-align: center;
+    /* Flexbox on mugav võimalus dünaamiliselt skaleerida lehe elemente */
+    display: flex;
+    flex-flow: column wrap;
+
+    display: -webkit-flex;
+    -webkit-flex-flow: column wrap;
+
+    display: -moz-flex;
+    -moz-flex-flow: column wrap;
+    justify-content: space-between;
+
+    -o-flex-flow: column wrap;
+    justify-content: space-between;
+
+}
+
+.countryPic {
+    position: relative;
+    /* elemendi asukoht muutub selle algse asukohta suhtes */
+    text-align: center;
+
+    -webkit-flex-basis: 300px;
+    -moz-flex-basis: 300px;
+    flex-basis: 300px;
+}
+
+.countryPic img {
+    border-radius: 60%;
+}
+
+.countryName {
+    position: absolute;
+    /* elemendi asukoht sõltub lähedama positsioneeritud parent-elemendi (countryPic) asukohast */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+footer {
+    width: calc(100% - 80px); /* kasutame vabad 80px polstri jaoks */
+    padding: 40px 40px;
+    background-color:burlywood;
+    margin-top: 20px;
+    text-transform: uppercase;
+    overflow: hidden; 
+}
+
+footer ul {
+    width: fit-content;
+    float: left; /* float atribuudil põhineval paigutamismeetodil on üks puudus: kuna elemendid nö ujuvad konteineris, 
+                    ei tea konteiner, kui suur ta peab olema. Parandamiseks footerisse overflow: hidden; */
+    padding-left: 0px;
+}
+
+footer ul li {
+    display: block;
+    padding: 0 0 10px 0;
+}
+
+footer ul li p {
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+footer ul li a {
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.socialM {
+    width: 32px;
+    float: right; /* float atribuudil põhineval paigutamismeetodil on üks puudus: kuna elemendid nö ujuvad konteineris, 
+                    ei tea konteiner, kui suur ta peab olema. Parandamiseks footerisse overflow: hidden; */
+}
+
+.socialM img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+@media only screen and (min-width: 950px) {
+    hr {
+        display: none;
+    }
+
+
+    .intro {
+        width: 50%;
+        padding-right: 45px;
+    }
+
+
+    .chefPic {
+        display: table-cell;
+        justify-self: flex-end;
+    }
+
+    .recipes h1 {
+        display: none;
+    }
+
+    .recipes {
+        padding: 10px;
+        /* Flexbox on mugav võimalus dünaamiliselt skaleerida lehe elemente */
+        /* Parent-elemendiks ehk konteineriks on meil .gallery-links klass ja 
+        child-elementideks .gallery-image objektid */
+        display: flex;
+        flex-flow: row wrap;
+
+        display: -webkit-flex;
+        -webkit-flex-flow: row wrap;
+
+        display: -moz-flex;
+        -moz-flex-flow: row wrap;
+        justify-content: space-between;
+
+        -o-flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
